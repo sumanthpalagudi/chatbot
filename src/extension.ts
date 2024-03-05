@@ -4,7 +4,7 @@ import { exec } from 'child_process';
 export function activate(context: vscode.ExtensionContext) {
     let disposable = vscode.commands.registerCommand('gitbot.helloWorld', () => {
         // Start the chatbot script
-        const chatbotProcess = exec(`python3 /Users/sumanthkrishnapalagudi/Desktop/GenAi/chatbot/gitbot/src/backend/chatbot.py`);
+        const chatbotProcess = exec(`python3 https://github.com/sumanthpalagudi/chatbot/blob/main/src/backend/chatbot.py`);
 
         // Listen for chatbot output
         chatbotProcess.stdout?.on('data', (data) => {
