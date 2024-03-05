@@ -19,9 +19,12 @@ jobs:
         run: npm install
       - name: Install vscode extensions
         run: npm install -g @vscode/vsce
-      - name: Login vsce
-        run: vsce login sumanthbot
       - name: Package the extension
         run: vsce package
-      - name: Publish the extension
-        run: vsce publish
+      - name: vsce publish
+  # You may pin to the exact commit or the version.
+  # uses: sigma/vsce-publish-action@b888dc8468ce39a3e940118f65f47a43ff1570cb
+        uses: sigma/vsce-publish-action@v0.0.2
+        with:
+    # vsce token
+          vsce_token: ${{ secrets.PA_TOKEN }}
