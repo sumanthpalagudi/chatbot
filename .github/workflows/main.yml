@@ -1,0 +1,25 @@
+name: My Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run extension
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+        run: npm install
+      - name: Install vscode extensions
+        run: npm install -g @vscode/vsce
+      - name: Package the extension
+        run: vsce package -y
+      - name: Publish the extension
+        run: vsce publish -y
