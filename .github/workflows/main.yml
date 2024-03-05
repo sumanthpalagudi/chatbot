@@ -12,7 +12,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '21.6.2'
       - name: Run extension
         env:
           API_KEY: ${{ secrets.API_KEY }}
@@ -21,10 +24,7 @@ jobs:
         run: npm install -g @vscode/vsce
       - name: Package the extension
         run: vsce package
-      - name: vsce publish
-  # You may pin to the exact commit or the version.
-  # uses: sigma/vsce-publish-action@b888dc8468ce39a3e940118f65f47a43ff1570cb
-        uses: sigma/vsce-publish-action@v0.0.2
-        with:
-    # vsce token
-          vsce_token: ${{ secrets.PA_TOKEN }}
+      - name: Publish extension
+        env:
+          VSCE_PAT: ${{ secrets.PA_TOKEN }} 
+        run: npx vsce publish --pat $VSCE_PAT
