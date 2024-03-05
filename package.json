@@ -1,9 +1,9 @@
 {
   "name": "gitbot",
-  "displayName": "gitbot",
+  "displayName": "Gitbot",
   "publisher": "sumanthbot",
-  "description": "it will automate the git command",
-  "version": "0.0.1",
+  "description": "It will automate the git command",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.86.0"
   },
