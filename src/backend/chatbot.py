@@ -1,7 +1,8 @@
 import re
+import os
 import subprocess
 import openai
-
+api_key = os.environ.get('API_KEY')
 # Set your OpenAI API key
 conversation_history = []
 def send_message_to_gpt3(user_input):
